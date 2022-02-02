@@ -144,6 +144,31 @@ bookLH("Sarah Stewart");
 airline.planes = 300;
 airline.buyPlanes = function () {
   this.planes++;
+  console.log(this.planes);
 };
 
-document.querySelector(".buy").addEventListener("click", airline.buyPlanes);
+console.log(airline);
+
+// If we didnt bind the funtion then we get NaN because then event funtion connect the this keyword with the element.
+document
+  .querySelector(".buy")
+  .addEventListener("click", airline.buyPlanes.bind(airline));
+
+// using bind on other functions.
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+// here we doesnt use this keyword thats why we use null.
+const addVat = addTax.bind(null, 0.23);
+console.log(addVat(100));
+
+// function return function
+
+const greet = function (greetings) {
+  console.log(greetings);
+  return (name) => console.log(`${greetings} ${name},`);
+};
+
+const sayHey = greet("hey");
+sayHey("Krish");
