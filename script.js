@@ -1,7 +1,7 @@
 "use strict";
 
 // DEFAULT PARAMETERS
-
+/*
 // Empty Array to hold recoreds.
 
 const booked = [];
@@ -80,7 +80,7 @@ greet("Hey")("Sam");
 const greets = (greetings) => (name) => console.log(` ${greetings}, ${name}`);
 
 greet("Hey")("krish");
-
+*/
 // The call and apply Methods
 
 const airline = {
@@ -139,3 +139,11 @@ bookNA(23, "Tarzan sam");
 const bookLH = book.bind(airline, 2345);
 
 bookLH("Sarah Stewart");
+
+// Event listner.
+airline.planes = 300;
+airline.buyPlanes = function () {
+  this.planes++;
+};
+
+document.querySelector(".buy").addEventListener("click", airline.buyPlanes);
